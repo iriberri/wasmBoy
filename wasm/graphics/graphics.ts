@@ -15,7 +15,7 @@ import {
 // Assembly script really not feeling the reexport
 import {
   eightBitLoadFromGBMemory
-} from '../memory/load';
+} from '../memory/index';
 import {
   eightBitStoreIntoGBMemorySkipTraps
 } from '../memory/store';
