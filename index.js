@@ -69,9 +69,11 @@ const WasmBoyDefaultOptions = {
   }
 };
 
-// Setup Google Analytics
+// Load some 3p scripts
 if (typeof window !== 'undefined') {
   const loadScript = require('load-script');
+
+  // Setup Google Analytics
   loadScript('https://www.googletagmanager.com/gtag/js?id=UA-125276735-1', function(err, script) {
     if (!err) {
       window.dataLayer = window.dataLayer || [];
@@ -82,6 +84,8 @@ if (typeof window !== 'undefined') {
       gtag('config', 'UA-125276735-1');
     }
   });
+
+  loadScript('dist/core/index.untouched.js', function(err, script) {});
 }
 
 export default class App extends Component {
