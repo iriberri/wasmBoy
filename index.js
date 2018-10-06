@@ -38,6 +38,23 @@ const WasmBoyDefaultOptions = {
       console.log('Graphics Callback Called! Only Logging this once... imageDataArray:', imageDataArray);
       graphicsCallbackCalled = true;
     }
+
+    const newCanvas = document.createElement('canvas');
+    const newCtx = newCanvas.getContext('2d');
+    const newImageData = newCtx.createImageData(160, 144);
+    newCanvas.style = `
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -o-crisp-edges;
+        image-rendering: pixelated;
+        -ms-interpolation-mode: nearest-neighbor;
+      `;
+    for (let i = 0; i < imageDataArray.length; i++) {
+      newImageData.data[i] = imageDataArray[i];
+    }
+    newCtx.putImageData(newImageData, 0, 0);
+    document.body.appendChild(newCanvas);
   },
   updateAudioCallback: (audioContext, audioBufferSourceNode) => {
     if (!audioCallbackCalled) {
