@@ -7,5 +7,5 @@ node_js:
 install: true
 script:
   - npm list
-  - npm install
+  - npm install --verbose
   - cat /home/travis/.npm/_logs/*.log
