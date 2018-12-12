@@ -87,6 +87,6 @@
     "LICENSE"
   ],
   "dependencies": {
-     "audiobuffer-to-wav": "git+https://github.com/torch2424/audiobuffer-to-wav.git#es-module-rollup"
+     "audiobuffer-to-wav": "git+https://github.com/torch2424/audiobuffer-to-wav.git"
   }
 }
